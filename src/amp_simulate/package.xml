@@ -2,8 +2,8 @@
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
   <name>amp_simulate</name>
-  <version>2023.0.3</version>
-  <description>Kart simulator for AMP</description>
+  <version>2023.1.1</version>
+  <description>Kart simulator for AMP using Webots</description>
 
   <maintainer email="varnon put your email here">Varnon</maintainer>
   <license>Apache License 2.0</license>

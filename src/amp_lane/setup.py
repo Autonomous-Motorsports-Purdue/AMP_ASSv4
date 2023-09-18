@@ -1,11 +1,11 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
-package_name = 'amp_lane_det'
+package_name = 'amp_lane'
 
 setup(
     name=package_name,
     version='0.0.0',
-    packages=[package_name],
+    packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -14,7 +14,7 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='lucy',
-    maintainer_email='xchenbox@gmail.com',
+    maintainer_email='lucy@todo.todo',
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
@@ -22,6 +22,5 @@ setup(
         'console_scripts': [
             'lane_follower = amp_simulate.lane_follower:main'
         ],
-        'launch.frontend.launch_extension': ['launch_ros = launch_ros']
     },
 )
