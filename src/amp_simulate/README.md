@@ -1,5 +1,5 @@
-# Tesla
+# Simulator
 
-This package provides a ROS2 interface example for the simulated Tesla in Webots.
+This is the webots simulator for the kart. It is not supposed to be a perfect reproduction of real life, just a testbed for our navigation code. 
 
-Documentation is available [here](https://github.com/cyberbotics/webots_ros2/wiki/Example-Tesla-Model-3).
+After building run it using `ros2 launch amp_simulate robot_launch.py`
