@@ -21,8 +21,8 @@ Install webots `sudo apt install ros-foxy-webots-ros2`. Next time you launch a w
 Clone the repo (change the link to an SSH link if you have SSH keys setup):
 
 ```bash
-git clone https://github.com/Autonomous-Motorsports-Purdue/AMP_ASSV3.git
-cd AMP_ASSV3
+git clone https://github.com/Autonomous-Motorsports-Purdue/AMP_ASSv4.git
+cd AMP_ASSv4
 ```
 
 ### Installing Dependencies and Building
