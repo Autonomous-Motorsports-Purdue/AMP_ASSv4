@@ -14,7 +14,7 @@ packaged with Jetpack: [JetPack SDK 5.0.2](https://developer.nvidia.com/embedded
 Make sure [ROS2 Foxy](https://docs.ros.org/en/foxy/Installation.html) is
 installed in your system and you have the proper environment setup.
 
-Install webots `sudo apt install ros-foxy-webots-ros2`. Next time you launch a webots related package, such as `ros2 launch webots_ros2_tesla robot_launch.py`, it will prompt you to install the right version of Webots for your ROS distro.
+Install webots `sudo apt install ros-foxy-webots-ros2`. Next time you launch a webots related package, such as `ros2 launch amp_simulate robot_launch.py`, it will prompt you to install the right version of Webots for your ROS distro.
 
 ### Downloading and Setting up the Repo
 
