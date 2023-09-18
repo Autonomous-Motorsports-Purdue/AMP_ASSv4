@@ -33,6 +33,8 @@ def get_ros2_nodes(*args):
     package_dir = get_package_share_directory('amp_simulate')
     robot_description = pathlib.Path(os.path.join(package_dir, 'resource', 'tesla_webots.urdf')).read_text()
 
+    print('WEBOTS_CONTROLLER_URL', controller_url_prefix(), 'vehicle')
+
     tesla_driver = Node(
         package='webots_ros2_driver',
         executable='driver',
@@ -49,7 +51,7 @@ def get_ros2_nodes(*args):
     )
 
     return [
-        lane_follower,
+        # lane_follower,
         tesla_driver,
     ]
 

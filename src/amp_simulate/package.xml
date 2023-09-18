@@ -3,13 +3,10 @@
 <package format="2">
   <name>amp_simulate</name>
   <version>2023.0.3</version>
-  <description>Tesla ROS2 interface for Webots.</description>
+  <description>Kart simulator for AMP</description>
 
-  <maintainer email="support@cyberbotics.com">Cyberbotics</maintainer>
+  <maintainer email="varnon put your email here">Varnon</maintainer>
   <license>Apache License 2.0</license>
-  <url type="website">http://wiki.ros.org/webots_ros2</url>
-  <url type="bugtracker">https://github.com/cyberbotics/webots_ros2/issues</url>
-  <url type="repository">https://github.com/cyberbotics/webots_ros2</url>
 
   <exec_depend>rclpy</exec_depend>
   <exec_depend>python3-opencv</exec_depend>
@@ -17,6 +14,7 @@
   <exec_depend>builtin_interfaces</exec_depend>
   <exec_depend>ackermann_msgs</exec_depend>
   <exec_depend>webots_ros2_driver</exec_depend>
+  <exec_depend>webots_ros2</exec_depend>
 
   <!-- These test dependencies are optional
   Their purpose is to make sure that the code passes the linters -->
