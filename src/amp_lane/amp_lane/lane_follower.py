@@ -23,7 +23,6 @@ from sensor_msgs.msg import Image
 from ackermann_msgs.msg import AckermannDrive
 from rclpy.qos import qos_profile_sensor_data, QoSReliabilityPolicy
 from rclpy.node import Node
-from amp_lane.infer import infer
 import scipy.ndimage as ndi
 
 from matplotlib import pyplot as plt
@@ -51,9 +50,6 @@ class LaneFollower(Node):
         low = -1/2 * message.height
         high = -1/10 * message.height
         img_road = img[int(low):int(high), :]
-
-        coords = infer(img, visualize=True)
-        print(coords)
 
         # Segment the image by color in HSV color space
         img_hsv = cv2.cvtColor(img_road, cv2.COLOR_BGR2HSV)

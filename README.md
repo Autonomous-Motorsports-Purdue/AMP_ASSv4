@@ -32,12 +32,12 @@ At this point, launch the simulation for a test! `ros2 launch amp_sim robot_laun
 
 ### Development Tips
 
-> Note: `--symlink-install` is causing issues with Humble package search. use `colcon build` for now
+> Note: `--symlink-install` is causing issues with Humble package search. Use `colcon build` after *all* file modifications for now.
 
-Run `colcon build --symlink-install` after file changes to 'recompile' the project. The one exception is python files, which does not require a colcon invocation due to the usage of `--symlink-install`, which automatically reflects changes in the python source code to the runnable versions.  
+Run `colcon build --symlink-install` after file changes to 'recompile' the project. You do not need to run this after changing python files since `--symlink-install` keep track of all new changes.
 
 ### Common Troubleshooting
 
-Seeing this: ```/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.``` 
+If you see this: ```/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.``` 
 
-This is not an error and you can safely ignore it. However, if the warning bothers you, [Read more here](https://robotics.stackexchange.com/questions/24230/setuptoolsdeprecationwarning-in-ros2-humble/24349#24349)
+It is not an error and you can safely ignore it. However, if the warning bothers you, [read more](https://robotics.stackexchange.com/questions/24230/setuptoolsdeprecationwarning-in-ros2-humble/24349#24349)

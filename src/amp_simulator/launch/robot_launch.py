@@ -58,7 +58,7 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument(
             'world',
-            default_value='Track.wbt',
+            default_value='track.wbt',
             description='Choose one of the world files from `/amp_simulator/worlds` directory'
         ),
         webots,

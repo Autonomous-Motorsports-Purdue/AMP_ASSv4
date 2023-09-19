@@ -1,7 +1,7 @@
 import re
 
 # Script to convert substring of the form `translation 1 2 3` into `translation 10 20 30`
-# Needed for scale conversions in wbt world
+# Utility for scaling wbt world files
 
 f = open('Track2.wbt', "r")
 target_str = f.read()
