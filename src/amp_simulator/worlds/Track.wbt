@@ -10,7 +10,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation 0.43591338593605095 0.43591338593605233 -0.7873747772970213 1.807602482235174
-  position 0.3733572413754646 5 5
+  position 0.3733572413754646 5 25
   follow "TeslaModel3"
 }
 TexturedBackground {
@@ -2873,7 +2873,7 @@ DEF forest Group {
 
 TeslaModel3 {
   translation 17 16.5 -0.2
-  rotation 0 0 1 3.1415
+  rotation 0 0 -1 1.8202
   controller "<extern>"
   sensorsSlotFront [
     Camera {
