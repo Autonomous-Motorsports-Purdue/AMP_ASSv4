@@ -1,0 +1,2892 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/tesla/TeslaModel3.proto"
+
+WorldInfo {
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation 0.43591338593605095 0.43591338593605233 -0.7873747772970213 1.807602482235174
+  position 0.3733572413754646 5 5
+  follow "TeslaModel3"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 100 100
+  floorTileSize 100 100
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "textures/track002.jpg"
+      ]
+    }
+    roughness 1
+    metalness 0
+  }
+}
+DEF forest Group {
+  children [
+    Solid {
+      rotation 0 1 0 0
+      scale 0.9950000000000001 0.9950000000000001 0.9950000000000001
+      children [
+        DEF grass Transform {
+          children [
+            CadShape {
+              url [
+                "obj/Grass/grass.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "grass"
+      boundingObject Mesh {
+        url [
+          "obj/Grass/grass.obj"
+        ]
+      }
+    }
+    Solid {
+      translation -2.5 -47.599999999999994 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 12.3 -47.599999999999994 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(1)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 25.299999999999997 -47.599999999999994 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(2)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 39.300000000000004 -47.599999999999994 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(3)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -16.8 -47.599999999999994 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(4)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -36.1 -47.599999999999994 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(5)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -46.900000000000006 -35.9 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(6)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -46.900000000000006 -21.099999999999998 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(7)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -46.900000000000006 -5.5 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(8)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -46.900000000000006 9.0 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(9)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -46.900000000000006 25.7 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(10)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -46.900000000000006 39.900000000000006 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(11)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -36.2 47.300000000000004 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(12)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -24.2 47.300000000000004 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(13)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -10.8 47.300000000000004 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(14)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 3.7 47.300000000000004 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(15)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 19.0 47.300000000000004 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(16)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 35.099999999999994 47.300000000000004 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(17)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 46.8 37.8 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(18)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 48.0 25.0 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(19)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 48.0 9.6 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(20)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 48.0 -5.8999999999999995 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(21)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 48.0 -20.8 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(22)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 48.0 -36.0 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Palm Tree V2/palm.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "palm(23)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.8699999999999999 7.73
+            rotation 0 1 0 0
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.33
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.051000000000000004 0.8
+            rotation -0.9999999999999999 0 0 0.21000000000000082
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 0.149 2.3000000000000003
+            rotation 1 0 0 -0.05
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.15
+                  radius 0.011
+                }
+              }
+            ]
+          }
+          Transform {
+            translation -0.17 0.13 3.69232
+            rotation 1 0 0 0.06
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.14
+                  radius 0.011
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 2.7 4.4 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -4.699999999999999 2.8000000000000003 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(1)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -13.899999999999999 -2.3000000000000003 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(2)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -7.0 -2.3000000000000003 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(3)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -7.0 24.900000000000002 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(4)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -13.4 22.0 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(5)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -21.099999999999998 24.1 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(6)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -28.799999999999997 25.2 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(7)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -27.3 -22.5 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(8)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -21.9 -27.599999999999998 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(9)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -10.9 -25.9 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(10)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 3.4000000000000004 -25.0 0.0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(11)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 13.200000000000001 -16.1 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(12)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 32.9 -17.7 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(13)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 22.400000000000002 -6.0 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(14)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 24.1 4.699999999999999 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(15)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 29.8 14.1 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(16)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 26.299999999999997 22.799999999999997 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(17)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 32.7 28.0 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(18)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 27.200000000000003 31.200000000000003 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(19)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 31.9 -28.799999999999997 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(20)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 24.700000000000003 -32.3 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(21)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 10.1 -32.3 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.3 0.3 0.3
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(22)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -2.8000000000000003 -29.8 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(23)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -17.6 -33.199999999999996 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(24)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -29.0 -28.1 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(25)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -31.9 -9.3 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(26)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -30.8 5.699999999999999 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.2 0.2 0.2
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(27)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation -28.900000000000002 15.2 0.0
+      rotation 0 1 0 0
+      children [
+        DEF tree Transform {
+          scale 0.3 0.3 0.3
+          children [
+            CadShape {
+              url [
+                "obj/Tree/tree000.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "tree(28)"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.05 -0.07 6.630000000000001
+            children [
+              Shape {
+                geometry Sphere {
+                  radius 0.27
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.05 -0.07 2.0
+            children [
+              Shape {
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.0165
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+
+TeslaModel3 {
+  translation 17 16.5 -0.2
+  rotation 0 0 1 3.1415
+  controller "<extern>"
+  sensorsSlotFront [
+    Camera {
+      translation -0.71 0.0 1
+      fieldOfView 1
+      width 360
+      height 240
+      recognition Recognition {
+        occlusion 0
+        frameThickness 0
+        segmentation TRUE
+      }
+    }
+  ]
+}
+
