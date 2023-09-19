@@ -13,6 +13,7 @@ src/uros/
 
 # miscellaneous
 *.pth
+*.mp4
 
 # VSCode
 .vscode/*

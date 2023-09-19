@@ -1,20 +1,31 @@
 """webots_ros2 package setup file."""
 
+import os
 from setuptools import setup
 
+# Iterate through all the files and subdirectories
+# to build the data files array
+def generate_data_files(share_path, dir):
+    data_files = []
+    
+    for path, _, files in os.walk(dir):
+        list_entry = (share_path + path, [os.path.join(path, f) for f in files if not f.startswith('.')])
+        data_files.append(list_entry)
+
+    return data_files
 
 package_name = 'amp_simulator'
 data_files = []
 data_files.append(('share/ament_index/resource_index/packages', ['resource/' + package_name]))
 data_files.append(('share/' + package_name + '/launch', ['launch/robot_launch.py']))
-data_files.append(('share/' + package_name + '/worlds', [
-    'worlds/tesla_world.wbt', 'worlds/.tesla_world.wbproj',
-]))
+# data_files.append(('share/' + package_name + '/worlds', [
+#     'worlds/tesla_world.wbt', 'worlds/.tesla_world.wbproj',
+# ]))
 data_files.append(('share/' + package_name + '/resource', [
     'resource/tesla_webots.urdf'
 ]))
 data_files.append(('share/' + package_name, ['package.xml']))
-
+data_files.extend(generate_data_files('share/' + package_name + '/', 'worlds'))
 
 setup(
     name=package_name,

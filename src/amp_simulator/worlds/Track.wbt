@@ -33,27 +33,6 @@ RectangleArena {
 DEF forest Group {
   children [
     Solid {
-      rotation 0 1 0 0
-      scale 0.9950000000000001 0.9950000000000001 0.9950000000000001
-      children [
-        DEF grass Transform {
-          children [
-            CadShape {
-              url [
-                "obj/Grass/grass.obj"
-              ]
-            }
-          ]
-        }
-      ]
-      name "grass"
-      boundingObject Mesh {
-        url [
-          "obj/Grass/grass.obj"
-        ]
-      }
-    }
-    Solid {
       translation -2.5 -47.599999999999994 0.0
       rotation 0 1 0 0
       children [
@@ -2877,15 +2856,13 @@ TeslaModel3 {
   controller "<extern>"
   sensorsSlotFront [
     Camera {
-      translation -0.71 0.0 1
+      translation -2.12 0 1.93
       fieldOfView 1
-      width 360
-      height 240
-      recognition Recognition {
-        occlusion 0
-        frameThickness 0
-        segmentation TRUE
-      }
+      width 1600
+      height 1000
+      bloomThreshold 0.1
+      motionBlur 10
+      noise 0.02
     }
   ]
 }

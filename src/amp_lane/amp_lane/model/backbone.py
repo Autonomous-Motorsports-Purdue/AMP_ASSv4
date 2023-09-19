@@ -1,6 +1,7 @@
 import torch,pdb
 import torchvision
 import torch.nn.modules
+from torchvision.models.resnet import ResNet18_Weights
 
 class vgg16bn(torch.nn.Module):
     def __init__(self,pretrained = False):
@@ -15,7 +16,7 @@ class resnet(torch.nn.Module):
     def __init__(self,layers,pretrained = False):
         super(resnet,self).__init__()
         if layers == '18':
-            model = torchvision.models.resnet18(pretrained=pretrained)
+            model = torchvision.models.resnet18(weights=ResNet18_Weights)
         elif layers == '34':
             model = torchvision.models.resnet34(pretrained=pretrained)
         elif layers == '50':

@@ -1,6 +1,6 @@
 import os, argparse
-from utils.dist_utils import get_rank, get_world_size, is_main_process, dist_print, DistSummaryWriter
-from utils.config import Config
+from amp_lane.utils.dist_utils import get_rank, get_world_size, is_main_process, dist_print, DistSummaryWriter
+from amp_lane.utils.config import Config
 import torch
 import time
 
@@ -74,7 +74,9 @@ def merge_config(config='', test_model=''):
     # args = get_args().parse_args()
     cfg = Config.fromfile(config)
 
-    args = object()
+    class Object(object):
+        pass
+    args = Object()
     args.test_model = test_model
 
     items = ['dataset','data_root','epoch','batch_size','optimizer','learning_rate',
@@ -83,7 +85,7 @@ def merge_config(config='', test_model=''):
     'finetune','resume', 'test_model','test_work_dir', 'num_lanes', 'var_loss_power', 'num_row', 'num_col', 'train_width', 'train_height',
     'num_cell_row', 'num_cell_col', 'mean_loss_w','fc_norm','soft_loss','cls_loss_col_w', 'cls_ext_col_w', 'mean_loss_col_w', 'eval_mode', 'eval_during_training', 'split_channel', 'match_method', 'selected_lane', 'cumsum', 'masked']
     for item in items:
-        if getattr(args, item) is not None:
+        if hasattr(args, item) and getattr(args, item) is not None:
             dist_print('merge ', item, ' config')
             setattr(cfg, item, getattr(args, item))
 
@@ -179,7 +181,7 @@ def real_init_weights(m):
             
 import importlib
 def get_model(cfg):
-    return importlib.import_module('model.model_'+cfg.dataset.lower()).get_model(cfg)
+    return importlib.import_module('amp_lane.model.model_' + cfg.dataset.lower()).get_model(cfg)
 
 def get_train_loader(cfg):
     if cfg.dataset == 'CULane':

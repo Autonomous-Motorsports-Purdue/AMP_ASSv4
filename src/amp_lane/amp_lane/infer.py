@@ -64,13 +64,6 @@ print('setting batch_size to 1 for demo generation')
 
 assert cfg.backbone in ['18','34','50','101','152','50next','101next','50wide','101wide']
 
-if cfg.dataset == 'CULane':
-    cls_num_per_lane = 18
-elif cfg.dataset == 'Tusimple':
-    cls_num_per_lane = 56
-else:
-    raise NotImplementedError
-
 print("Build Model")
 
 net = get_model(cfg)
@@ -110,16 +103,15 @@ from PIL import Image
 
 
 def infer(image_np, visualize=True):
-    
-    if visualize:
-        print("Inference")
 
     if isinstance(image_np, np.ndarray):
         img = Image.fromarray(image_np)
-        vis = img.copy()
+        vis = image_np.copy()
+        img_h, img_w = vis.shape[0], vis.shape[1]
     elif isinstance(image_np, Image.Image):
         img = image_np
-        vis = np.array(img)
+        vis =  np.array(img)
+        img_w, img_h = img.size[0], img.size[1]
     else:
         raise Exception("Bad image type", type(image_np))
 
@@ -128,20 +120,41 @@ def infer(image_np, visualize=True):
 
     imgs = imgs.cuda()
     with torch.no_grad():
-        if visualize:
-            print('Feed into model:', imgs.size(), type(imgs))
         pred = net(imgs)
 
     coords = pred2coords(pred, cfg.row_anchor, cfg.col_anchor, original_image_width = img_w, original_image_height = img_h)
     
     if visualize:
-        print("Drawing Debug")
         for lane in coords:
             for coord in lane:
-                cv2.circle(vis,coord,5,(0,255,0),-1)
+                cv2.circle(vis, coord, 5, (255, 0, 0), -1)
 
         cv2.imshow('annotated', vis)
-        cv2.waitKey(0)
+        
+
+    return coords
     
 if __name__ == '__main__':
-    infer(Image.open('CULane/video/05081544_0305-000001.jpg'))
+    # Video
+    # infer(Image.open('/home/lucy/video/05081544_0305-000001.jpg'))
+    # cv2.waitKey(0)
+
+    cap = cv2.VideoCapture('kart.mp4')
+
+    frameCount = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    frameWidth = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    frameHeight = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+
+    ret = True
+
+    while ret:
+        cap.read()
+        cap.read()
+        cap.read()
+        cap.read()
+        
+        ret, buf = cap.read()
+        infer(buf)
+        cv2.waitKey(1)
+
+    cap.release()

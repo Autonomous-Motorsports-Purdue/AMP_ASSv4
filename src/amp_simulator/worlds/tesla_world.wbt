@@ -1441,13 +1441,11 @@ TeslaModel3 {
     Camera {
       translation -2.12 0 0.93
       fieldOfView 1
-      width 360
-      height 240
-      recognition Recognition {
-        occlusion 0
-        frameThickness 0
-        segmentation TRUE
-      }
+      width 1600
+      height 1000
+      bloomThreshold 0.1
+      motionBlur 10
+      noise 0.1
     }
   ]
 }

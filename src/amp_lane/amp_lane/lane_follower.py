@@ -24,8 +24,11 @@ from ackermann_msgs.msg import AckermannDrive
 from rclpy.qos import qos_profile_sensor_data, QoSReliabilityPolicy
 from rclpy.node import Node
 from amp_lane.infer import infer
+import scipy.ndimage as ndi
 
-CONTROL_COEFFICIENT = 0.0005
+from matplotlib import pyplot as plt
+
+CONTROL_COEFFICIENT = 0.001
 
 class LaneFollower(Node):
     def __init__(self):
@@ -42,33 +45,48 @@ class LaneFollower(Node):
         img = message.data
         img = np.frombuffer(img, dtype=np.uint8).reshape((message.height, message.width, 4))
             
+        img = cv2.cvtColor(img, cv2.COLOR_RGBA2RGB)
+        # BGR!
+        
+        low = -1/2 * message.height
+        high = -1/10 * message.height
+        img_road = img[int(low):int(high), :]
 
-        img = img[160:190, :]
+        coords = infer(img, visualize=True)
+        print(coords)
 
         # Segment the image by color in HSV color space
-        img = cv2.cvtColor(img, cv2.COLOR_RGBA2RGB)
+        img_hsv = cv2.cvtColor(img_road, cv2.COLOR_BGR2HSV)
+        mask = cv2.inRange(img_hsv, np.array([0, 0, 200]), np.array([180, 50, 255]))
 
-        infer(img, visualize=True)
+        center = ndi.center_of_mass(mask)
 
-        img = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
-        mask = cv2.inRange(img, np.array([50, 110, 150]), np.array([120, 255, 255]))
+        vis = mask.copy()
+        isnan = center[0] != center[0] or center[1] != center[1]
+        if not isnan:
+            cv2.circle(vis, (int(center[1]), int(center[0])), 30, (255), -1)
+        cv2.imshow('masks', mask)
+        cv2.waitKey(1)
 
         # Find the largest segmented contour
-        contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+        # contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 
         command_message = AckermannDrive()
-        command_message.speed = 50.0
+        command_message.speed = 30.0
         command_message.steering_angle = 0.0
 
-        if contours:
-            largest_contour = max(contours, key=cv2.contourArea)
-            largest_contour_center = cv2.moments(largest_contour)
+        # countour_center = sum(contours, key=cv2.contourArea)
+        # largest_contour_center = cv2.moments(largest_contour)
 
-            if largest_contour_center['m00'] != 0:
-                center_x = int(largest_contour_center['m10'] / largest_contour_center['m00'])
-                # Find error (the lane distance from the target distance)
-                error = center_x - 190
-                command_message.steering_angle = error*CONTROL_COEFFICIENT
+        # if largest_contour_center['m00'] != 0:
+        #     center_x = int(largest_contour_center['m10'] / largest_contour_center['m00'])
+        #     # Find error (the lane distance from the target distance)
+        #     error = center_x - 190
+        #     command_message.steering_angle = error*CONTROL_COEFFICIENT
+
+        if not isnan:
+            error = center[1] - message.width / 2
+            command_message.steering_angle = error * CONTROL_COEFFICIENT
 
         self.__ackermann_publisher.publish(command_message)
 

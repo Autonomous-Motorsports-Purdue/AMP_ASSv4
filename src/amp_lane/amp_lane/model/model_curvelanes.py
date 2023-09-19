@@ -1,7 +1,7 @@
 import torch
 from model.backbone import resnet
 import numpy as np
-from utils.common import initialize_weights
+from amp_lane.utils.common import initialize_weights
 from model.seg_model import SegHead
 
 class parsingNet(torch.nn.Module):

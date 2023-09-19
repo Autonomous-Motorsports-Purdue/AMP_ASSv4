@@ -1,5 +1,5 @@
 dataset= 'CULane'
-data_root= 'video' # Need to be modified before running
+data_root= '' # Need to be modified before running
 epoch= 50
 batch_size= 32
 optimizer= 'SGD'

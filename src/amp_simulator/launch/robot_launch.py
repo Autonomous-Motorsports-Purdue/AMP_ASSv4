@@ -48,13 +48,17 @@ def generate_launch_description():
     lane_follower = Node(
         package='amp_lane',
         executable='lane_follower',
-        output='screen'
+        output={
+            'stdout': 'screen',
+            'stderr': 'screen',
+        },
+        emulate_tty=True,
     )
 
     return LaunchDescription([
         DeclareLaunchArgument(
             'world',
-            default_value='tesla_world.wbt',
+            default_value='Track.wbt',
             description='Choose one of the world files from `/amp_simulator/worlds` directory'
         ),
         webots,
