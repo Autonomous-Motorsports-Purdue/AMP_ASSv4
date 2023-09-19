@@ -1,6 +1,18 @@
+import os
 from setuptools import find_packages, setup
 
 package_name = 'amp_lane'
+
+# Iterate through all the files and subdirectories
+# to build the data files array
+def generate_data_files(share_path, dir):
+    data_files = []
+    
+    for path, _, files in os.walk(dir):
+        list_entry = (share_path + path, [os.path.join(path, f) for f in files if not f.startswith('.')])
+        data_files.append(list_entry)
+
+    return data_files
 
 setup(
     name=package_name,
@@ -10,7 +22,8 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-    ],
+        # ('share/' + package_name, [package_name + '/lane_follower.py', package_name + '/infer.py'])
+    ] + generate_data_files('share/', package_name),
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='lucy',

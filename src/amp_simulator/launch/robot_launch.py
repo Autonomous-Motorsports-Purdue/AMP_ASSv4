@@ -48,6 +48,7 @@ def generate_launch_description():
     lane_follower = Node(
         package='amp_lane',
         executable='lane_follower',
+        output='screen'
     )
 
     return LaunchDescription([

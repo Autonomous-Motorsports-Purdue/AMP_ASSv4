@@ -14,6 +14,8 @@
 
 """ROS2 Tesla driver."""
 
+import pkgutil
+import sys
 import cv2
 import numpy as np
 import rclpy
@@ -21,10 +23,9 @@ from sensor_msgs.msg import Image
 from ackermann_msgs.msg import AckermannDrive
 from rclpy.qos import qos_profile_sensor_data, QoSReliabilityPolicy
 from rclpy.node import Node
-
+from amp_lane.infer import infer
 
 CONTROL_COEFFICIENT = 0.0005
-
 
 class LaneFollower(Node):
     def __init__(self):
@@ -46,6 +47,9 @@ class LaneFollower(Node):
 
         # Segment the image by color in HSV color space
         img = cv2.cvtColor(img, cv2.COLOR_RGBA2RGB)
+
+        infer(img, visualize=True)
+
         img = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
         mask = cv2.inRange(img, np.array([50, 110, 150]), np.array([120, 255, 255]))
 

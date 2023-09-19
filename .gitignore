@@ -12,6 +12,7 @@ src/uros/
 *.repos
 
 # miscellaneous
+*.pth
 
 # VSCode
 .vscode/*
