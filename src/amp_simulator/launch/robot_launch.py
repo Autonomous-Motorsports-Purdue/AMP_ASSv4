@@ -29,7 +29,7 @@ from webots_ros2_driver.webots_controller import WebotsController
 
 
 def generate_launch_description():
-    package_dir = get_package_share_directory('amp_simulate')
+    package_dir = get_package_share_directory('amp_simulator')
     world = LaunchConfiguration('world')
 
     webots = WebotsLauncher(
@@ -38,7 +38,7 @@ def generate_launch_description():
     )
 
     robot_description_path = os.path.join(package_dir, 'resource', 'tesla_webots.urdf')
-    kart_driver = WebotsController(
+    tesla_driver = WebotsController(
         robot_name='vehicle',
         parameters=[
             {'robot_description': robot_description_path}
@@ -54,11 +54,11 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'world',
             default_value='tesla_world.wbt',
-            description='Choose one of the world files from `/amp_simulate/worlds` directory'
+            description='Choose one of the world files from `/amp_simulator/worlds` directory'
         ),
         webots,
         webots._supervisor,
-        kart_driver,
+        tesla_driver,
         lane_follower,
 
         # This action will kill all nodes once the Webots simulation has exited

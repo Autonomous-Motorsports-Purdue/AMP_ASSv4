@@ -28,10 +28,16 @@ rosdep install --from-paths src -iry
 colcon build --symlink-install
 ```
 
-Next time you launch a webots related package, such as `ros2 launch amp_simulate robot_launch.py`, the `webots-ros2` package` will prompt you to install the right version of Webots for your ROS distro.
+At this point, launch the simulation for a test! `ros2 launch amp_sim robot_launch.py`. If you do not already have the right version of webots (2023b) installed, the `webots-ros2` package will prompt you to install Webots.
+
+### Development Tips
+
+> Note: `--symlink-install` is causing issues with Humble package search. use `colcon build` for now
+
+Run `colcon build --symlink-install` after file changes to 'recompile' the project. The one exception is python files, which does not require a colcon invocation due to the usage of `--symlink-install`, which automatically reflects changes in the python source code to the runnable versions.  
 
 ### Common Troubleshooting
 
 Seeing this: ```/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.``` 
 
-This is not an error and you can safely ignore it. However, if the warning bothers you, [Read more here](https://answers.ros.org/question/396439/setuptoolsdeprecationwarning-setuppy-install-is-deprecated-use-build-and-pip-and-other-standards-based-tools/)
+This is not an error and you can safely ignore it. However, if the warning bothers you, [Read more here](https://robotics.stackexchange.com/questions/24230/setuptoolsdeprecationwarning-in-ros2-humble/24349#24349)

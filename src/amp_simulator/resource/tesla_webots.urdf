@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <robot name="Tesla Webots">
     <webots>
-        <plugin type="amp_simulate.kart_driver.TeslaDriver" />
+        <plugin type="amp_simulator.tesla_driver.TeslaDriver" />
     </webots>
 </robot>

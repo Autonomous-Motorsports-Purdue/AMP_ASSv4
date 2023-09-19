@@ -4,7 +4,7 @@
   <name>amp_lane</name>
   <version>0.0.0</version>
   <description>Lane detection package for AMP</description>
-  <maintainer email="Nick put your email here">Nick</maintainer>
+  <maintainer email="Nick@nick.com">Nick</maintainer>
   <license>TODO: License declaration</license>
 
   <test_depend>ament_copyright</test_depend>

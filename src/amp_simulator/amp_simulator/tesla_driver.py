@@ -24,7 +24,7 @@ class TeslaDriver:
 
         # ROS interface
         rclpy.init(args=None)
-        self.__node = rclpy.create_node('kart_node')
+        self.__node = rclpy.create_node('tesla_node')
         self.__node.create_subscription(AckermannDrive, 'cmd_ackermann', self.__cmd_ackermann_callback, 1)
 
     def __cmd_ackermann_callback(self, message):

@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
-<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="2">
-  <name>amp_simulate</name>
-  <version>2023.1.1</version>
-  <description>Kart simulator for AMP using Webots</description>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>amp_simulator</name>
+  <version>0.0.0</version>
+  <description>Tesla ROS2 interface for Webots.</description>
 
-  <maintainer email="varnon put your email here">Varnon</maintainer>
+  <maintainer email="varnon@varnon.com">varnon</maintainer>
   <license>Apache License 2.0</license>
-
+  
   <exec_depend>rclpy</exec_depend>
   <exec_depend>python3-opencv</exec_depend>
   <exec_depend>python3-numpy</exec_depend>
