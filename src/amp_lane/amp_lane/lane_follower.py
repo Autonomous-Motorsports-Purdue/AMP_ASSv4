@@ -27,7 +27,9 @@ import scipy.ndimage as ndi
 
 from matplotlib import pyplot as plt
 
-CONTROL_COEFFICIENT = 0.001
+from amp_lane.nanosam.infer import infer
+
+CONTROL_COEFFICIENT = 0.0015
 
 class LaneFollower(Node):
     def __init__(self):
@@ -44,47 +46,56 @@ class LaneFollower(Node):
         img = message.data
         img = np.frombuffer(img, dtype=np.uint8).reshape((message.height, message.width, 4))
             
-        img = cv2.cvtColor(img, cv2.COLOR_RGBA2RGB)
-        # BGR!
+        # Careful, this is BGR! opencv uses BGR but pretty much anything else is in RGB  
+        img = cv2.cvtColor(img, cv2.COLOR_BGRA2BGR)
+
+        mask, anns = infer(img)
         
-        low = -1/2 * message.height
-        high = -1/10 * message.height
-        img_road = img[int(low):int(high), :]
+        # low = -1/2 * message.height
+        # high = -1/10 * message.height
+        # img_road = img[int(low):int(high), :]
 
-        # Segment the image by color in HSV color space
-        img_hsv = cv2.cvtColor(img_road, cv2.COLOR_BGR2HSV)
-        mask = cv2.inRange(img_hsv, np.array([0, 0, 200]), np.array([180, 50, 255]))
+        # # Segment the image by color in HSV color space
+        # img_hsv = cv2.cvtColor(img_road, cv2.COLOR_BGR2HSV)
+        # mask = cv2.inRange(img_hsv, np.array([0, 0, 200]), np.array([180, 50, 255]))
+        error = 0.0
+        speed = 10.0
 
-        center = ndi.center_of_mass(mask)
+        if mask is not None:
+            vis = anns
+            # vis = mask.copy()
+            # vis = img + np.dstack([vis, vis, vis]).astype(np.uint8)
 
-        vis = mask.copy()
-        isnan = center[0] != center[0] or center[1] != center[1]
-        if not isnan:
-            cv2.circle(vis, (int(center[1]), int(center[0])), 30, (255), -1)
-        cv2.imshow('masks', mask)
-        cv2.waitKey(1)
+            mask_size = mask.sum()
 
-        # Find the largest segmented contour
-        # contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+            if mask_size > 0:
+                # # Average x index of a mask pixel, weighted by Y
+                # avg_x = (mask * yv * xv).sum() / (mask * yv).sum()
+                # # Average Y index of a mask pixel
+                # avg_y = (mask * yv).sum() / mask_size
+
+                # Topmost point of mask
+                nonz = np.nonzero(mask)
+                y_val = int(np.percentile(nonz[0], 25, axis=0))
+                top_y = y_val
+                top_x = (mask[y_val] * np.arange(0, message.width, 1)).sum() / mask[y_val].sum()
+
+                print('Center', top_x, top_y)
+
+                cv2.circle(vis, (int(top_x), int(top_y)), 30, (255, 0, 0), -1)
+                cv2.imshow("Steer direction", vis)
+
+                error = top_x - message.width / 2
+                speed = 30.0
 
         command_message = AckermannDrive()
-        command_message.speed = 30.0
+        command_message.speed = speed
         command_message.steering_angle = 0.0
-
-        # countour_center = sum(contours, key=cv2.contourArea)
-        # largest_contour_center = cv2.moments(largest_contour)
-
-        # if largest_contour_center['m00'] != 0:
-        #     center_x = int(largest_contour_center['m10'] / largest_contour_center['m00'])
-        #     # Find error (the lane distance from the target distance)
-        #     error = center_x - 190
-        #     command_message.steering_angle = error*CONTROL_COEFFICIENT
-
-        if not isnan:
-            error = center[1] - message.width / 2
-            command_message.steering_angle = error * CONTROL_COEFFICIENT
-
+            
+        command_message.steering_angle = error * CONTROL_COEFFICIENT
         self.__ackermann_publisher.publish(command_message)
+
+        cv2.waitKey(1)
 
 
 def main(args=None):

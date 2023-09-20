@@ -11,8 +11,10 @@ def generate_data_files(share_path, dir):
     for path, _, files in os.walk(dir):
         list_entry = (share_path + path, [os.path.join(path, f) for f in files if not f.startswith('.')])
         data_files.append(list_entry)
-
+    
     return data_files
+
+install_requires=['setuptools', 'mobile_sam @ git+https://github.com/ChaoningZhang/MobileSAM.git']
 
 setup(
     name=package_name,
@@ -24,7 +26,8 @@ setup(
         ('share/' + package_name, ['package.xml']),
         # ('share/' + package_name, [package_name + '/lane_follower.py', package_name + '/infer.py'])
     ] + generate_data_files('share/', package_name),
-    install_requires=['setuptools'],
+    install_requires=install_requires,
+    setup_requires=install_requires,
     zip_safe=True,
     maintainer='lucy',
     maintainer_email='nick@nick.com',

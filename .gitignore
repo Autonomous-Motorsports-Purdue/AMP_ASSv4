@@ -26,6 +26,7 @@ src/uros/
 
 # Python cache files
 *.pyc
+.eggs/
 
 # Compiled Static libraries
 *.lai

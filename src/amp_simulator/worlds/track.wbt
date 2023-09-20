@@ -6,7 +6,29 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/vehicles/protos/tesla/TeslaModel3.proto"
 
 WorldInfo {
-  basicTimeStep 16
+  basicTimeStep 10
+
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+    ContactProperties {
+      material2 "TeslaModel3Wheel"
+      coulombFriction [
+        8
+      ]
+      softCFM 1e-05
+      bumpSound ""
+      rollSound ""
+      slideSound ""
+    }
+  ]
 }
 Viewpoint {
   orientation 0.43591338593605095 0.43591338593605233 -0.7873747772970213 1.807602482235174
@@ -32,6 +54,29 @@ RectangleArena {
 }
 DEF forest Group {
   children [
+    Solid {
+      translation 0.0 0.0 -0.17
+      rotation 0 1 0 0
+      scale 0.0995 0.0995 0.0995
+      children [
+        DEF grass Transform {
+          children [
+            CadShape {
+              url [
+                "obj/Grass/grass.obj"
+              ]
+            }
+          ]
+        }
+      ]
+      name "grass"
+      boundingObject Mesh {
+        url [
+          "obj/Grass/grass.obj"
+        ]
+      }
+    }
+
     Solid {
       translation -2.5 -47.599999999999994 0.0
       rotation 0 1 0 0
@@ -2857,11 +2902,22 @@ TeslaModel3 {
   sensorsSlotFront [
     Camera {
       translation -2.12 0 1.93
-      fieldOfView 1
+      rotation 0 1 0 0.1
+      fieldOfView 1.5
       width 1600
       height 1000
       bloomThreshold 0.1
       motionBlur 10
+      noise 0.02
+    }
+    RangeFinder {
+      translation -2.12 0 1.93
+      rotation 0 1 0 0.1
+      fieldOfView 1.5
+      width 1600
+      height 1000
+      motionBlur 10
+      maxRange 30.0  
       noise 0.02
     }
   ]
