@@ -71,7 +71,7 @@ def infer(image: np.ndarray, visualize=True):
     halfheight = image.shape[0] // 2
     halfwidth = image.shape[1] // 2
     lowerbox = np.zeros(image.shape[0:2], dtype=bool)
-    lowerbox[halfheight:-1, :] = True
+    lowerbox[int(image.shape[0] * 0.85):-1, :] = True
 
     def mask_score(mask: Union[np.ndarray, Dict]):
         ''' Score each mask on its liklihood of being a road

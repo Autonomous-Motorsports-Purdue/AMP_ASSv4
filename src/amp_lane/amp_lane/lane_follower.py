@@ -62,6 +62,8 @@ class LaneFollower(Node):
         speed = 10.0
 
         if mask is not None:
+            if isinstance(mask, dict):
+                mask = mask['segmentation']
             vis = anns
             # vis = mask.copy()
             # vis = img + np.dstack([vis, vis, vis]).astype(np.uint8)
