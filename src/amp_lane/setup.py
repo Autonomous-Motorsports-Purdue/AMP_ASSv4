@@ -14,7 +14,7 @@ def generate_data_files(share_path, dir):
     
     return data_files
 
-install_requires=['setuptools', 'mobile_sam @ git+https://github.com/ChaoningZhang/MobileSAM.git']
+install_requires=['setuptools'] # , 'mobile_sam @ git+https://github.com/ChaoningZhang/MobileSAM.git']
 
 setup(
     name=package_name,
