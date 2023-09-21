@@ -2,7 +2,7 @@
 
 Autonomous Motorsports Purdue's software stack for the go-kart which will race
 in the [Autonomous Karting Series](https://autonomouskartingseries.com/).
-It is built on top of [ROS2 Hunble](https://docs.ros.org/en/humble/index.html) and Ubuntu 22.04.
+It is built on top of [ROS2 Humble](https://docs.ros.org/en/humble/index.html) and Ubuntu 22.04.
 
 **NOTE:** This repository is a ROS workspace.
 
@@ -28,7 +28,13 @@ rosdep install --from-paths src -iry
 colcon build --symlink-install
 ```
 
-Now build the repo `colon build`
+Now build the repo 
+
+```
+colon build
+```
+
+If this works not, it should report no failed packages.
 
 At this point, launch the simulation for a test! `ros2 launch amp_simulate robot_launch.py`. If you do not already have the right version of webots (2023b) installed, the `webots-ros2` package will prompt you to install Webots.
 
