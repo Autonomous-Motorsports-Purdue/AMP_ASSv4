@@ -1,11 +1,46 @@
 import sys
+import time
 from typing import Union, Dict
 import cv2
 from mobile_sam import SamAutomaticMaskGenerator, SamPredictor, sam_model_registry
 import numpy as np
 import torch
-from torchvision.ops import masks_to_boxes
 from ament_index_python import get_package_share_directory
+
+_last_time = None
+def measure_time(name):
+    global _last_time
+    now = time.time()
+
+    if _last_time == None or name == 'Start Timing':
+        print('\n\n')
+        _last_time = now
+        return
+    
+    print('\tTiming', name, "=", now - _last_time)
+    _last_time = now
+
+
+def masks_to_boxes(mask):
+    """
+    Compute the bounding boxes around the provided mask.
+
+    Returns a Tuple of bounding box in ``(x1, y1, x2, y2)`` format with
+    ``0 <= x1 < x2`` and ``0 <= y1 < y2``.
+
+    Args:
+        masks (NDarray[H, W]): mask to transform (H, W) are the spatial dimensions.
+
+    Returns:
+        Tuple[4]: bounding box
+    """
+
+    y, x = np.where(mask != 0)
+
+    if x.size == 0 or y.size == 0:
+        return (0, 0, 0, 0)
+
+    return (np.min(x),  np.min(y), np.max(x), np.max(y))
 
 def show_anns(anns, orig):
     if len(anns) == 0:
@@ -57,8 +92,6 @@ def build_lower_point_grid(x_across, y_range) -> np.ndarray:
     points_x = np.tile(points_x[None, :], (y_across, 1))
     points_y = np.tile(points_y[:, None], (1, x_across))
 
-    print(points_x.shape, points_y.shape)
-
     points = np.stack([points_x, points_y], axis=-1).reshape(-1, 2)
     return points
 
@@ -66,7 +99,7 @@ print("Building SAM model")
 mask_generator = SamAutomaticMaskGenerator(
     mobile_sam,
     points_per_side=None,
-    point_grids=[build_lower_point_grid(8, 0.5)],
+    point_grids=[build_lower_point_grid(6, 0.5)],
     points_per_batch=64,
     )
 
@@ -91,41 +124,61 @@ def infer(image: np.ndarray, visualize=True):
     total_area = image.shape[0] * image.shape[1]
     halfheight = image.shape[0] // 2
     halfwidth = image.shape[1] // 2
-    lowerbox = np.zeros(image.shape[0:2], dtype=bool)
-    lowerbox[int(image.shape[0] * 0.85):-1, :] = True
 
     def mask_score(mask: Union[np.ndarray, Dict]):
         ''' Score each mask on its liklihood of being a road
             Note no color operations here since it's a bit of a pickle
             to deal with white point / exposure
 
-            We use two metrics:
+            We use these metrics:
             - How much of the mask intersects with the bottom half of the screen.
               Because the top half usually contains farplane objects which are more
               volatile in terms of size and placement, the lower half is usually a 
               better predictor since it restricts the candidates to nearby objects
             - How centered is the bottom half of the mask. There are some walls and 
               barriers that may take up a large portion of the bottom half of the screen.
-              There are scored lower since they're off to the size 
+              There are scored lower since they're off to the size
+            - How grayish the color of the mask is 
         '''
         if isinstance(mask, dict):
             mask = mask['segmentation']
 
-        intersection = mask * lowerbox
-        lower_bbox = masks_to_boxes(torch.from_numpy(intersection).unsqueeze(0))[0]
+        measure_time('Start Timing')
+
+        intersection = mask.copy()
+        intersection[0:int(image.shape[0] * 0.5)] = False
+
+        measure_time('intersection_time')
 
         # Compute the X center of the bounding box of the bottom of the mask
+        lower_bbox = masks_to_boxes(intersection)
         lower_bbox_centering = (lower_bbox[0] + lower_bbox[2]) / 2
         # Find its distance from the X center
         lower_bbox_centering = abs(halfwidth - lower_bbox_centering)
         # Flip the distance (to reward centered masks) and normalize the score to [0, 1)
         lower_bbox_centering = (-lower_bbox_centering + halfwidth) / halfwidth
+
+        measure_time('BB time')
+
+        # Compute average HSV
+        hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)[..., 2] * mask
+        avg_saturation = np.mean(hsv)
+        print('avg sat', avg_saturation)
+        color_score = (255 - avg_saturation) / 255 # How far the saturation is from zero
+
+        measure_time('Color time')
+
+        intersect_area = intersection.sum() / total_area
+
+        measure_time('Area time')
         
-        return intersection.sum() / total_area + \
-               lower_bbox_centering.item()
+        return intersect_area.item() * \
+               lower_bbox_centering.item() * \
+               color_score.item()
     
-    print(list(map(mask_score, masks)))
-    road_mask = max(masks, key=mask_score)
+    mask_scores = list(map(mask_score, masks))
+    print('Mask Scores:', mask_scores)
+    road_mask = masks[mask_scores.index(max(mask_scores))]
 
     # if mask_score(road_mask) >= 0.5:
     #     masks = [road_mask]

@@ -2904,8 +2904,8 @@ TeslaModel3 {
       translation -2.12 0 1.93
       rotation 0 1 0 0.1
       fieldOfView 1.5
-      width 1600
-      height 1000
+      width 800
+      height 500
       bloomThreshold 0.1
       motionBlur 10
       noise 0.02
@@ -2914,8 +2914,8 @@ TeslaModel3 {
       translation -2.12 0 1.93
       rotation 0 1 0 0.1
       fieldOfView 1.5
-      width 1600
-      height 1000
+      width 800
+      height 500
       motionBlur 10
       maxRange 30.0  
       noise 0.02
