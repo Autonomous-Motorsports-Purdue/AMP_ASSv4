@@ -78,7 +78,7 @@ class LaneFollower(Node):
 
                 # Topmost point of mask
                 nonz = np.nonzero(mask)
-                y_val = int(np.percentile(nonz[0], 25, axis=0))
+                y_val = int(np.percentile(nonz[0], 4, axis=0))
                 top_y = y_val
                 top_x = (mask[y_val] * np.arange(0, message.width, 1)).sum() / mask[y_val].sum()
 

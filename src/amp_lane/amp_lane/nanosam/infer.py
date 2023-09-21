@@ -42,10 +42,31 @@ mobile_sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
 mobile_sam.to(device=device)
 mobile_sam.eval()
 
+def build_lower_point_grid(x_across, y_range) -> np.ndarray:
+    """Generates a 2D grid of points evenly spaced in [0,1]x[0,1].
+       Use only part of image hwere y>= y_range
+    """
+
+    y_across = int(y_range * x_across)
+
+    offset = 1 / (2 * x_across)
+
+    points_x = np.linspace(offset, 1 - offset, x_across)
+    points_y = np.linspace(y_range + offset, 1 - offset, y_across)
+    
+    points_x = np.tile(points_x[None, :], (y_across, 1))
+    points_y = np.tile(points_y[:, None], (1, x_across))
+
+    print(points_x.shape, points_y.shape)
+
+    points = np.stack([points_x, points_y], axis=-1).reshape(-1, 2)
+    return points
+
 print("Building SAM model")
 mask_generator = SamAutomaticMaskGenerator(
     mobile_sam,
-    points_per_side=8,
+    points_per_side=None,
+    point_grids=[build_lower_point_grid(8, 0.5)],
     points_per_batch=64,
     )
 

@@ -2896,7 +2896,7 @@ DEF forest Group {
 }
 
 TeslaModel3 {
-  translation 17 16.5 -0.2
+  translation 17 16.5 0.5
   rotation 0 0 -1 1.8202
   controller "<extern>"
   sensorsSlotFront [
