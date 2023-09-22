@@ -13,10 +13,16 @@ installed in your system and you have the proper environment setup.
 
 ### Downloading and Setting up the Repo
 
-Clone the repo (change the link to an SSH link if you have SSH keys setup):
+Set up your Git SSH keys:
+
+[Step 1](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+[Step 2](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+[Check](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection)
+
+Clone the repo:
 
 ```bash
-git clone https://github.com/Autonomous-Motorsports-Purdue/AMP_ASSv4.git
+git clone git@github.com:Autonomous-Motorsports-Purdue/AMP_ASSv4.git
 cd AMP_ASSv4
 ```
 
@@ -34,13 +40,13 @@ Now build the repo
 colcon build
 ```
 
-And let ros2 know where the find the built packages
+And let ROS2 know where the find the built packages
 
 ```
 source install/local_setup.bash
 ```
 
-If this works not, it should report no failed packages.
+If this works out, it should report no failed packages.
 
 At this point, launch the simulation for a test! `ros2 launch amp_simulate robot_launch.py`. If you do not already have the right version of webots (2023b) installed, the `webots-ros2` package will prompt you to install Webots.
 
