@@ -105,7 +105,7 @@ mask_generator = SamAutomaticMaskGenerator(
 
 # predictor = SamPredictor(mobile_sam)
 
-def infer(image: np.ndarray, visualize=True):
+def find_road_mask(image: np.ndarray, visualize=True):
 
     print('Mask gen')
     # predictor.set_image(image)
@@ -210,7 +210,7 @@ if __name__ == '__main__':
             cap.read()
         
         ret, buf = cap.read()
-        masks, anns = infer(buf)
+        masks, anns = find_road_mask(buf)
 
         cv2.imshow('anns', anns)
         cv2.waitKey(1)

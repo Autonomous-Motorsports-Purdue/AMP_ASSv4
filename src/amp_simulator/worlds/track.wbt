@@ -2917,7 +2917,7 @@ TeslaModel3 {
       width 800
       height 500
       motionBlur 10
-      maxRange 30.0  
+      maxRange 30
       noise 0.02
     }
   ]
