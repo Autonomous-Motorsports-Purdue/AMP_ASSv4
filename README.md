@@ -31,7 +31,13 @@ colcon build --symlink-install
 Now build the repo 
 
 ```
-colon build
+colcon build
+```
+
+And let ros2 know where the find the built packages
+
+```
+source install/local_setup.bash
 ```
 
 If this works not, it should report no failed packages.
