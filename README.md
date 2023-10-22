@@ -11,6 +11,8 @@ It is built on top of [ROS2 Humble](https://docs.ros.org/en/humble/index.html) a
 Make sure [ROS2 Humble](https://docs.ros.org/en/humble/Installation.html) is
 installed in your system and you have the proper environment setup.
 
+If you are deploying to the Jetson, please read [Jetson Setup Guide](JETSON_SETUP.md) for how to wire and run code on the Jetson
+
 ### Downloading and Setting up the Repo
 
 Set up your Git SSH keys:
@@ -48,7 +50,7 @@ source install/local_setup.bash
 
 If this works out, it should report no failed packages.
 
-At this point, launch the simulation for a test! `ros2 launch amp_simulate robot_launch.py`. If you do not already have the right version of webots (2023b) installed, the `webots-ros2` package will prompt you to install Webots.
+At this point, launch the simulation for a test! `ros2 launch amp_simulator robot_launch.py`. If you do not already have the right version of webots (2023b) installed, the `webots-ros2` package will prompt you to install Webots.
 
 ### Development Tips
 
